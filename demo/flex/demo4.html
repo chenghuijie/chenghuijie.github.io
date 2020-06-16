@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="cmn-hans">
+<head>
+  <meta charset="UTF-8">
+  <title>flex demo4</title>
+</head>
+<body>
+  <h1>水平居中并且可以内部水平滚动</h1>
+  <h3>
+    方法：<br>
+    父级添加：overflow-x: auto; text-align: center;；子级添加：display: inline-flex; align-items: center;。
+  </h3>
+
+  <style>
+    .father {
+      overflow-x: auto; /* 内嵌滚动条 */
+      text-align: center; /* 子级行内元素居中 */
+    }
+    .son {
+      display: inline-flex; /* 子级设置为行内元素 */
+      align-items: center;
+    }
+
+    img {
+      border: 2px solid blue;
+    }
+  </style>
+
+  <div class="father">
+    <div class="son">
+      0到无数个：
+      <img src="https://via.placeholder.com/100">
+      <img src="https://via.placeholder.com/200">
+      <img src="https://via.placeholder.com/300">
+      <img src="https://via.placeholder.com/400">
+    </div>
+  </div>
+</body>
+</html>

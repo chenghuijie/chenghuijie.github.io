@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="cmn-hans">
+<head>
+  <meta charset="UTF-8">
+  <title>flex demo8</title>
+</head>
+<body>
+  <h1>最后一个子项居右</h1>
+  <h3>
+    方法：<br>
+    最后一个子项设置：margin-left: auto;。
+  </h3>
+
+  <style>
+    .father {
+      display: flex;
+    }
+    .last {
+      margin-left: auto;
+    }
+  </style>
+
+  <div class="father">
+    <div>son1</div>
+    <div>son2</div>
+    <div>son3</div>
+    <div class="last">son4</div>
+  </div>
+</body>
+</html>

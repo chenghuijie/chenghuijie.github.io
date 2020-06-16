@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="renderer" content="webkit">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+
+  <!-- favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#2b5797">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>css sprites 合并和代码生成工具</title>
+  <link href="css/sprites.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+
+  <div class="wrap">
+    <div class="dropbox" id="dropbox">
+      <dl>
+        <dt></dt>
+        <dd>将要合并的图片拖拽到框内</dd>
+      </dl>
+      <ul id="image_list" class="image_list"></ul>
+    </div>
+
+    <div class="settings" id="settings" style="display:none;">
+      <label>layout:
+        <select id="type">
+          <option value="v_l">垂直左对齐</option>
+          <option value="v_r">垂直右对齐</option>
+          <option value="h_t">水平顶对齐</option>
+          <option value="h_b">水平底对齐</option>
+        </select>
+      </label>
+      <label>padding:
+        <input type="text" id="padding" value="2" style="width:30px;" />
+      </label>
+      <label>filename:
+        <input type="text" id="filename" value="sprites.png" style="width:150px;" />
+      </label>
+      <p style="margin-top:30px;">
+        <label>mobile:
+          <input type="checkbox" id="background_size" value="1" />
+        </label>
+        <input type="button" id="submit_btn" class="submit_btn" value="生成" />
+      </p>
+    </div>
+  </div>
+  <canvas height="400" width="400" style="background:url(images/grid.jpg); display:none; " id="workplace"></canvas>
+  <div id="result_pop" style="display:none; " class="result_pop">
+    <textarea id="css_code"></textarea>
+    <div class="img_hold">
+      <h3>合并后的图片</h3>
+      <a href="" id="sprites_img">
+        <img src="about:blank" />
+      </a>
+    </div>
+  </div>
+
+  <script src="js/sprites.min.js"></script>
+</body>
+</html>
