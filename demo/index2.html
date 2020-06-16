@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="cmn-hans">
+<head>
+  <meta charset="utf-8">
+
+  <!--PC-->
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="renderer" content="webkit">
+
+  <!--WAP-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no,email=no,address=no">
+
+  <!-- favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#2b5797">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>demo2</title>
+
+  <!--<script src="//cdn.jsdelivr.net/npm/vconsole"></script>-->
+  <!--<script>new VConsole()</script>-->
+
+  <!--<script src="//cdn.jsdelivr.net/npm/eruda"></script>-->
+  <!--<script>eruda.init()</script>-->
+</head>
+<body>
+
+  <h2>picture-source的图片选择</h2>
+  <picture>
+    <source srcset="//via.placeholder.com/300?text=webp" type="image/webp" alt="WebP">
+    <img src="//via.placeholder.com/300x100?text=no%20WebP" alt="非WebP">
+  </picture>
+  <hr>
+
+  <h2>JS判断是否支持WebP</h2>
+  <style>
+    .m-img {
+      width: 100px;
+      height: 100px;
+    }
+  </style>
+  <p>是否支持WebP：<strong id="j-strong"></strong></p>
+
+  <img src="//cdn.jsdelivr.net/gh/chenghuijie/chenghuijie.github.io/source/images/1.webp" alt="WebP 无损" class="m-img">
+  <img src="//cdn.jsdelivr.net/gh/chenghuijie/chenghuijie.github.io/source/images/2.webp" alt="WebP 有损" class="m-img">
+  <img src="//cdn.jsdelivr.net/gh/chenghuijie/chenghuijie.github.io/source/images/3.webp" alt="WebP 动图" class="m-img">
+  <script>
+  function checkWebp () {
+    try {
+      return (document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') === 0)
+    } catch (err) {
+      return false
+    }
+  }
+
+  console.log(document.getElementById('j-strong').innerHTML = checkWebp())
+  </script>
+  <hr>
+
+</body>
+</html>

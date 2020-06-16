@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="cmn-hans">
+<head>
+  <meta charset="utf-8">
+
+  <!--PC-->
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="renderer" content="webkit">
+
+  <!--WAP-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no,email=no,address=no">
+
+  <!-- favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#2b5797">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>demo4</title>
+
+  <!--<script src="//cdn.jsdelivr.net/npm/vconsole"></script>-->
+  <!--<script>new VConsole()</script>-->
+
+  <!--<script src="//cdn.jsdelivr.net/npm/eruda"></script>-->
+  <!--<script>eruda.init()</script>-->
+
+  <style>
+    p {
+      white-space: pre-line;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>CSS的小数、百分比</h2>
+  <p style="line-height: 20.1px;" id="j-p-1">20.1px</p>
+  <p style="line-height: 20.2px;" id="j-p-2">20.2px</p>
+  <p style="line-height: 20.3px;" id="j-p-3">20.3px</p>
+  <p style="line-height: 20.4px;" id="j-p-4">20.4px</p>
+  <p style="line-height: 20.5px;" id="j-p-5">20.5px</p>
+  <p style="line-height: 20.6px;" id="j-p-6">20.6px</p>
+  <p style="line-height: 20.7px;" id="j-p-7">20.7px</p>
+  <p style="line-height: 20.8px;" id="j-p-8">20.8px</p>
+  <p style="line-height: 20.9px;" id="j-p-9">20.9px</p>
+  <p style="line-height: 21px;" id="j-p-10">21px</p>
+
+  <script type="text/javascript">
+  for (var i = 1; i < 11; i++) {
+    var dom = document.getElementById('j-p-' + i)
+    dom.innerHTML = '样式：' + dom.style['line-height'] + '；占用高度（四舍五入或向下取整）：' + dom.offsetHeight + 'px'
+  }
+  </script>
+
+  <hr>
+
+  <h2>帧动画+gif</h2>
+  <div class="sprite1" style="display: inline-block;"></div>
+  <div class="sprite2" style="display: inline-block;"></div>
+  <img src="//chenghuijie.github.io/source/images/animation.gif" height="300" width="300"><!-- 触发：paint -> composite -->
+
+  <style>
+    .sprite1 {
+      width: 300px;
+      height: 300px;
+      overflow: hidden;
+    }
+
+    .sprite1:after {
+      content: "";
+      display: block;
+      width: 6000px;
+      height: 300px;
+      background: url(//chenghuijie.github.io/source/images/animation.png) no-repeat center;
+      animation: frame1 .6s steps(20) both infinite;
+      will-change: transform;
+    }
+    @keyframes frame1 {
+      /* 触发：composite */
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-6000px);
+      }
+    }
+
+    .sprite2 {
+      width: 300px;
+      height: 300px;
+      background-repeat: no-repeat;
+      background-image: url(//chenghuijie.github.io/source/images/animation.png);
+      animation: frame2 .6s steps(20) both infinite;
+      will-change: background-position;
+    }
+    @keyframes frame2 {
+      /* 触发：paint -> composite */
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: -6000px 0;
+      }
+    }
+
+  </style>
+
+  <hr>
+
+</body>
+</html>

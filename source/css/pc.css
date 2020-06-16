@@ -1,0 +1,127 @@
+@charset "UTF-8";
+/* CSS reset*/
+html,body,div,span,h1,h2,h3,h4,h5,h6,p,a,dl,dt,dd,ul,ol,li,nav,footer,header,
+form,input,optgroup,select,textarea,video,audio,iframe,button,pre,code,blockquote,q,
+fieldset,legend,caption,object,article,aside,details,figcaption,figure,menu,section {margin:0;padding:0;border:0;font-size:100%;}
+body,button,input,optgroup,select,textarea {font:14px/1.4286 "microsoft yahei",simsun,tahoma,arial,sans-serif;}
+h1,h2,h3,h4,h5,h6 {font-size:100%;font-weight:500;}
+a,ins {text-decoration:none;}
+a {background-color:transparent;}
+a:active,a:hover {outline-width:0;}
+audio,canvas,video,progress {display:inline-block;*display:inline;*zoom:1;}
+article,aside,details,figcaption,figure,footer,header,menu,nav,section,iframe,main {display:block;}
+summary {display:list-item;}
+template,[hidden] {display:none;}
+svg:not(:root) {overflow:hidden;}
+abbr,acronym {border:0;font-variant:normal;}
+del {text-decoration:line-through;}
+caption,th {text-align:left;}
+mark {background-color:#ff0;color:#000;}
+small {font-size:80%;}
+sub,sup {font-size:75%;line-height:0;position:relative;vertical-align:baseline;}
+sup {top:-0.5em;}
+sub {bottom:-0.25em;}
+img {vertical-align:middle;border-style:none;}
+ol,ul {list-style:none;}
+table {border-collapse:collapse;border-spacing:0;}
+table,tbody,tfoot,thead,tr,th,td {padding:0;}
+address,caption,cite,code,dfn,th,var,em,i,time {font-style:normal;font-weight:500;}
+b,strong {font-weight:inherit;font-weight:bolder;}
+blockquote,q {quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after {content:"";content:none;}
+hr {display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0;}
+button,input,select,textarea,:focus {outline:none;}
+textarea {overflow:auto;}
+button,input {overflow:visible;}
+button,select {text-transform:none;}
+button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {border-style:none;padding:0;}
+button:-moz-focusring,[type="button"]:-moz-focusring,[type="reset"]:-moz-focusring,[type="submit"]:-moz-focusring {outline:1px dotted ButtonText;}
+[type="number"]::-webkit-inner-spin-button,[type="number"]::-webkit-outer-spin-button {height:auto;}
+[type="search"] {-webkit-appearance:textfield;outline-offset:-2px;}
+[type="search"]::-webkit-search-cancel-button,[type="search"]::-webkit-search-decoration {-webkit-appearance:none;}
+body {word-wrap:break-word;}
+/*/CSS reset*/
+
+/* 全局*/
+html, body {
+    /*height: 100%;*/
+}
+html {
+    _overflow-x: hidden;
+}
+body {
+    background-color: #fff;
+    color: #333;
+    min-width: 980px;
+    position: relative;
+}
+a {
+    color: #333;
+}
+a:hover {
+    text-decoration: none;
+}
+/*/全局*/
+
+/* pc媒体查询（980px~1920px），最大width:49rem;*/
+@media (max-width: 1028px) {
+    html {font-size: 20px;}
+}
+@media (min-width: 1029px) and (max-width: 1077px) {
+    html {font-size: 21px;}
+}
+@media (min-width: 1078px) and (max-width: 1126px) {
+    html {font-size: 22px;}
+}
+@media (min-width: 1127px) and (max-width: 1175px) {
+    html {font-size: 23px;}
+}
+@media (min-width: 1176px) and (max-width: 1224px) {
+    html {font-size: 24px;}
+}
+@media (min-width: 1225px) and (max-width: 1273px) {
+    html {font-size: 25px;}
+}
+@media (min-width: 1274px) and (max-width: 1322px) {
+    html {font-size: 26px;}
+}
+@media (min-width: 1323px) and (max-width: 1371px) {
+    html {font-size: 27px;}
+}
+@media (min-width: 1372px) and (max-width: 1420px) {
+    html {font-size: 28px;}
+}
+@media (min-width: 1421px) and (max-width: 1469px) {
+    html {font-size: 29px;}
+}
+@media (min-width: 1470px) and (max-width: 1518px) {
+    html {font-size: 30px;}
+}
+@media (min-width: 1519px) and (max-width: 1567px) {
+    html {font-size: 31px;}
+}
+@media (min-width: 1568px) and (max-width: 1616px) {
+    html {font-size: 32px;}
+}
+@media (min-width: 1617px) and (max-width: 1665px) {
+    html {font-size: 33px;}
+}
+@media (min-width: 1666px) and (max-width: 1714px) {
+    html {font-size: 34px;}
+}
+@media (min-width: 1715px) and (max-width: 1763px) {
+    html {font-size: 35px;}
+}
+@media (min-width: 1764px) and (max-width: 1812px) {
+    html {font-size: 36px;}
+}
+@media (min-width: 1813px) and (max-width: 1861px) {
+    html {font-size: 37px;}
+}
+@media (min-width: 1862px) and (max-width: 1910px) {
+    html {font-size: 38px;}
+}
+@media (min-width: 1911px) {
+    html {font-size: 39px;}
+}
+/*/pc媒体查询*/

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="cmn-hans">
+  <head>
+    <meta charset="utf-8" />
+
+    <!--PC-->
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="renderer" content="webkit" />
+
+    <!--WAP-->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <meta name="format-detection" content="telephone=no,email=no,address=no" />
+
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#2b5797" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <title>demo</title>
+
+    <script src="//cdn.jsdelivr.net/npm/vconsole"></script>
+    <script>
+      new VConsole();
+    </script>
+
+    <!--<script src="//cdn.jsdelivr.net/npm/eruda"></script>-->
+    <!--<script>eruda.init()</script>-->
+
+    <style>
+      body {
+        height: 4000px;
+        width: 4000px;
+        overflow: scroll;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>判断 dom 在视口内</h2>
+
+    <div
+      id="j-div"
+      style="
+        width: 300px;
+        height: 300px;
+        position: absolute;
+        top: 1000px;
+        left: 1000px;
+        background: red;
+      "
+    ></div>
+
+    <script>
+      const dom = document.getElementById("j-div");
+      window.addEventListener("scroll", function () {
+        console.log(isInViewport(dom));
+      });
+
+      function isInViewport(dom) {
+        const viewPortHeight =
+          window.innerHeight ||
+          document.documentElement.clientHeight ||
+          document.body.clientHeight;
+        const viewPortWidth =
+          window.innerWidth ||
+          document.documentElement.clientWidth ||
+          document.body.clientWidth;
+
+        const rect = dom.getBoundingClientRect();
+        const { top, left, bottom, right } = rect;
+
+        const result =
+          top <= viewPortHeight &&
+          bottom >= 0 &&
+          right >= 0 &&
+          left <= viewPortWidth;
+
+        dom.innerText = result ? "在视口内" : "不在视口内";
+
+        return result;
+      }
+    </script>
+  </body>
+</html>

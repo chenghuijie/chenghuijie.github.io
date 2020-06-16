@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="cmn-hans">
+<head>
+  <meta charset="UTF-8">
+  <title>flex demo1</title>
+</head>
+<body>
+  <h1>栅格系统</h1>
+  <h3>
+    方法：<br>
+    充满剩余空间的子级添加：flex-grow: 1;；占用固定宽度的子级添加固定宽度或父级百分比宽度。
+  </h3>
+
+  <style>
+    .father {
+      display: flex;
+    }
+    .son {
+      box-shadow: 0 0 1px 1px red inset;
+    }
+  </style>
+
+  <div class="father">
+    <div class="son" style="flex-grow: 1">  <!-- 填补剩余空间 -->
+      auto
+    </div>
+    <div class="son" style="width: 40px;">  <!-- 固定宽度 -->
+      width: 40px
+    </div>
+    <div class="son" style="width: 50%;"> <!-- 父级百分比宽度 -->
+      width: 50%
+    </div>
+  </div>
+</body>
+</html>

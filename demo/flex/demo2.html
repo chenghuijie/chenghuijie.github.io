@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="cmn-hans">
+<head>
+  <meta charset="UTF-8">
+  <title>flex demo2</title>
+</head>
+<body>
+  <h1>一边固定宽度，一边自适应宽度的</h1>
+  <h3>
+    方法：<br>
+    固定的子级添加：flex-shrink: 0; flex-basis/width: 固定宽度;；自适应的子级添加：flex-grow: 1;。
+  </h3>
+
+  <style>
+    .father {
+      display: flex;
+    }
+    .son1 {
+      flex-shrink: 0; /* 当空间不足时，不缩小 */
+      flex-basis: 50px; /* 固定宽度 */
+
+      background-color: antiquewhite;
+    }
+    .son2 {
+      flex-grow: 1; /* 填补剩余空间 */
+
+      background-color: aliceblue;
+      margin-left: 10px;
+    }
+  </style>
+
+  <div class="father">
+    <div class="son1">固定宽度的，不能被挤压、也不自适应增加宽度</div>
+    <div class="son2">自适应宽度的，占据剩下的所有内容 <img src="https://via.placeholder.com/100"></div>
+  </div>
+
+
+</body>
+</html>

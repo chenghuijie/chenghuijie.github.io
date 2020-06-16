@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="cmn-hans">
+<head>
+  <meta charset="utf-8" />
+
+  <!--PC-->
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="renderer" content="webkit" />
+
+  <!--WAP-->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+  />
+  <meta name="format-detection" content="telephone=no,email=no,address=no" />
+
+  <!-- favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+  <meta name="msapplication-TileColor" content="#2b5797" />
+  <meta name="theme-color" content="#ffffff" />
+
+  <title>demo6</title>
+
+  <script src="//cdn.jsdelivr.net/npm/vconsole"></script>
+  <script>
+  new VConsole();
+  </script>
+
+  <!--<script src="//cdn.jsdelivr.net/npm/eruda"></script>-->
+  <!--<script>eruda.init()</script>-->
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      word-break: break-all;
+    }
+    p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <h2 style="font-size: 12px; margin-bottom: 80px">
+    大字体、大显示 手机样式恢复(浏览器宽度：<span id="j-span--1"></span>)
+  </h2>
+
+  <script>
+  const span_1 = document.getElementById('j-span--1');
+
+  span_1.innerHTML = `${window.innerWidth}px`;
+  </script>
+
+  <style>
+    html {
+      text-size-adjust: 100% !important;
+      -ms-text-size-adjust: 100% !important;
+      -webkit-text-size-adjust: 100% !important;
+      -moz-text-size-adjust: 100% !important;
+    }
+  </style>
+
+  <div
+    style="
+        font-size: 12px;
+        position: fixed;
+        top: 25px;
+        right: 0;
+        background: rgba(255, 255, 255, 0.5);
+      "
+  >
+    <span id="j-span-0"></span>
+  </div>
+  <script type="text/javascript">
+  (function (e, d, a) {
+    var b = 'orientationchange' in e ? 'orientationchange' : 'resize',
+      f = d.documentElement;
+
+    function c () {
+      switch (a) {
+        case 'height':
+          var h = Math.max(f.clientHeight, e.innerHeight),
+            g = 100 * (h / 1334) || 50;
+          break;
+        default:
+          var h = Math.max(f.clientWidth, e.innerWidth),
+            g = 100 * (h / 750) || 50;
+      }
+      // if (g < 30) {  // 限制最小
+      //   g = 30
+      // }
+      // if (g > 70) {  // 限制最大
+      //   g = 70
+      // }
+      f.style.fontSize = g + 'px';
+      var realfz = +window
+        .getComputedStyle(document.getElementsByTagName('html')[0])
+        .fontSize.replace('px', '');
+      if (g !== realfz) {
+        f.style.fontSize = g * (g / realfz) + 'px';
+      }
+
+      // 输出
+      const span0 = document.getElementById('j-span-0');
+      span0.innerHTML = `执行 html font-size 重新计算<br>原本设置:${g}px ；得到的真实是:${realfz}px ；<br>因此最后设置:${
+        g * (g / realfz) + 'px'
+      } ；最后得到的真实是：${
+        window.getComputedStyle(document.getElementsByTagName('html')[0])
+          .fontSize
+      }`;
+    }
+
+    e.addEventListener(b, c, false);
+    // 测试
+    e.addEventListener('click', c, false);
+    c();
+  })(window, document, 'width');
+  </script>
+
+  <div
+    style="
+        font-size: 0.25rem;
+        border-bottom: 0.25rem solid pink;
+        box-shadow: 0 0 5px 1px #f00 inset;
+      "
+    id="j-div-1"
+  >
+    <div>
+      书写样式：
+      <p>
+        font-size: 0.25rem;
+        <br />
+        border-bottom: 0.25rem
+      </p>
+    </div>
+
+    <hr />
+
+    <div>
+      计算后：
+      <p>
+        <span id="j-span-1-1"></span>
+      </p>
+    </div>
+
+    <hr />
+
+    <div>
+      期望：
+      <p>
+        <span id="j-span-1-2"></span>
+      </p>
+    </div>
+  </div>
+  <script>
+  function setInfo1 () {
+    setTimeout(() => {
+      const div1 = document.getElementById('j-div-1');
+      const span1 = document.getElementById('j-span-1-1');
+      const span2 = document.getElementById('j-span-1-2');
+      div1CSS = window.getComputedStyle(div1);
+
+      span1.innerHTML = `fontSize: ${div1CSS.fontSize}<br>border-bottom-width: ${div1CSS.borderBottomWidth}`;
+      span2.innerHTML = `0.25rem * ${
+        window.getComputedStyle(document.getElementsByTagName('html')[0])
+          .fontSize
+      }/rem = ${
+        0.25 *
+        window
+          .getComputedStyle(document.getElementsByTagName('html')[0])
+          .fontSize.replace('px', '') +
+        'px'
+      }`;
+    }, 20);
+  }
+
+  window.addEventListener(
+    'orientationchange',
+    () => {
+      setInfo1();
+    },
+    false
+  );
+  window.addEventListener(
+    'resize',
+    () => {
+      setInfo1();
+    },
+    false
+  );
+  window.addEventListener(
+    'click',
+    () => {
+      setInfo1();
+    },
+    false
+  );
+  setInfo1();
+  </script>
+
+  <div
+    style="
+        font-size: 20px;
+        border-bottom: 20px solid pink;
+        box-shadow: 0 0 5px 1px #f00 inset;
+      "
+    id="j-div-2"
+  >
+    <div>
+      书写样式：
+      <p>
+        font-size: 20px
+        <br />
+        border-bottom: 20px
+      </p>
+    </div>
+
+    <hr />
+
+    <div>
+      计算后：
+      <p>
+        <span id="j-span-2-1"></span>
+      </p>
+    </div>
+
+    <hr />
+
+    <div>
+      期望：
+      <p>
+        <span id="j-span-2-2"></span>
+      </p>
+    </div>
+  </div>
+  <script>
+  function setInfo2 () {
+    setTimeout(() => {
+      const div2 = document.getElementById('j-div-2');
+      const span3 = document.getElementById('j-span-2-1');
+      const span4 = document.getElementById('j-span-2-2');
+      div2CSS = window.getComputedStyle(div2);
+
+      span3.innerHTML = `fontSize: ${div2CSS.fontSize}<br>border-bottom-width: ${div2CSS.borderBottomWidth}`;
+      span4.innerHTML = `20px`;
+    }, 20);
+  }
+
+  window.addEventListener(
+    'orientationchange',
+    () => {
+      setInfo2();
+    },
+    false
+  );
+  window.addEventListener(
+    'resize',
+    () => {
+      setInfo2();
+    },
+    false
+  );
+  window.addEventListener(
+    'click',
+    () => {
+      setInfo2();
+    },
+    false
+  );
+  setInfo2();
+  </script>
+
+  <div
+    style="
+        font-size: 5vw;
+        border-bottom: 5vw solid pink;
+        box-shadow: 0 0 5px 1px #f00 inset;
+      "
+    id="j-div-3"
+  >
+    <div>
+      书写样式：
+      <p>
+        font-size: 5vw
+        <br />
+        border-bottom: 5vw
+      </p>
+    </div>
+
+    <hr />
+
+    <div>
+      计算后：
+      <p>
+        <span id="j-span-3-1"></span>
+      </p>
+    </div>
+
+    <hr />
+
+    <div>
+      期望：
+      <p>
+        <span id="j-span-3-2"></span>
+      </p>
+    </div>
+  </div>
+  <script>
+  function setInfo3 () {
+    setTimeout(() => {
+      const div3 = document.getElementById('j-div-3');
+      const span5 = document.getElementById('j-span-3-1');
+      const span6 = document.getElementById('j-span-3-2');
+      div3CSS = window.getComputedStyle(div3);
+
+      span5.innerHTML = `fontSize: ${div3CSS.fontSize}<br>border-bottom-width: ${div3CSS.borderBottomWidth}`;
+      span6.innerHTML = `5vw * ${window.innerWidth / 100}px/vw = ${
+        (5 * window.innerWidth) / 100
+      }px`;
+    }, 20);
+  }
+
+  window.addEventListener(
+    'orientationchange',
+    () => {
+      setInfo3();
+    },
+    false
+  );
+  window.addEventListener(
+    'resize',
+    () => {
+      setInfo3();
+    },
+    false
+  );
+  window.addEventListener(
+    'click',
+    () => {
+      setInfo3();
+    },
+    false
+  );
+  setInfo3();
+  </script>
+
+  <hr />
+</body>
+</html>

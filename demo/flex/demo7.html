@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="cmn-hans">
+<head>
+  <meta charset="UTF-8">
+  <title>flex demo7</title>
+</head>
+<body>
+  <h1 style="z-index: 1; position: relative;">fixed居中并且可以上下滚动</h1>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+  <style>
+    body {
+      overflow: hidden;
+    }
+
+    .fixed {
+      /* 全屏蒙层 */
+      position: fixed;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+
+      /* 垂直滚动 */
+      overflow-x: hidden;
+      overflow-y: auto;
+
+      background-color: aliceblue;
+    }
+
+    .father {
+      text-align: center; /* 子级行内元素居中 */
+
+    }
+
+    .son {
+      display: inline-flex; /* 子级设置为行内元素 */
+      min-height: 100vh;
+      align-items: center;
+
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    img {
+      border: 2px solid blue;
+    }
+  </style>
+
+  <div class="fixed">
+    <div class="father">
+      <div class="son">
+        0到无数个：
+        <img src="https://via.placeholder.com/100">
+        <img src="https://via.placeholder.com/200">
+        <img src="https://via.placeholder.com/300">
+        <img src="https://via.placeholder.com/400">
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

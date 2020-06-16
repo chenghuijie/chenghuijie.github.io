@@ -1,0 +1,32 @@
+
+/*========================================================================
+      @作者：emilyqiu
+      @说明：公用样式
+      @最后编辑：$Author:: emilyqiu       $
+                 $Date:: 2020-08-06 11:10:31#$
+========================================================================*/
+html{
+  /*防止IOS屏幕横竖屏切换时文字大小产生变化*/
+  -webkit-text-size-adjust:100%;
+  /*禁用点击的高亮反馈*/
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+  font-size:50px;
+  font-size:13.3333334vw;
+  /*padding-bottom:constant(safe-area-inset-bottom);
+  padding-bottom:env(safe-area-inset-bottom);*/
+}
+/* 禁止长按链接与图片弹出菜单 */
+a,img{-webkit-touch-callout:none;}
+body,dl,dd,ul,ol,h1,h2,h3,h4,h5,h6,form,input,textarea,p,th,td{margin:0;padding:0;}
+h1,h2,h3,h4,h5,h6{font-size:100%;}
+li{list-style:none;}
+em{font-style:normal;}
+img{vertical-align:middle;}
+table{border-collapse:collapse;border-spacing:0;}
+input:focus,textarea:focus,button:focus{outline:0;}
+a,a:hover{text-decoration:none;}
+/*解决字体和文字大小在浏览器中没有被继承的问题*/
+button,textarea,select{font-family:inherit;font-size:100%;-webkit-appearance:none;}
+input{font-family:inherit;font-size:100%;}
+/*input::-webkit-input-placeholder, textarea::-webkit-input-placeholder{color:rgba(0,0,0,.4);}*/
+body{font-family:'PingFang SC', "Helvetica Neue", Arial, sans-serif; line-height:1.5;}

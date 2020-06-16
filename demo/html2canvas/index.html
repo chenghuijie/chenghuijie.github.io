@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <title>全民冰雪运动会</title>
+  <meta
+    name="viewport"
+    content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover"
+  />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Language" content="zh-cn" />
+  <meta name="author" content="Tencent-ISUX-Music" />
+  <meta name="Copyright" content="Tencent" />
+  <!--关键字和描述一定要写-->
+  <meta name="description" content="全民冰雪运动会 - 活力开麦 唤醒运动DNA" />
+  <meta name="keywords" content="大赛,KTV,直播,唱歌,K歌,录歌,听歌,放歌,练歌,唱K,全民K歌" />
+  <!--如果该页面只适合在手机上进行浏览，请添加以下代码-->
+  <meta name="applicable-device" content="mobile">
+  <link rel="stylesheet" href="./poster.css" />
+</head>
+<body>
+
+  <div class="mod_poster" id="j-poster">
+    <div class="mod_result mod_result_1">
+      <div class="mod_result__tit">
+        <h3 class="mod_result__name">用户呢称用户呢称用户呢称用户呢称用户呢称</h3>
+        <p class="mod_result__desc">声音里隐藏的冰雪运动DNA是 </p>
+      </div>
+      <div class="mod_result__count">
+        <p class="mod_result__num">99</p>
+        <p class="mod_result__num">98%</p>
+      </div>
+      <!--<div class="mod_result__btn">
+          <a href="#" class="btn_save">点击保存海报</a>
+          <a href="#" class="btn_again">再测一次</a>
+      </div>-->
+    </div>
+    <div class="mod_code">
+      <div class="mod_code__info">
+        <p>本测试页二维码 →</p>
+      </div>
+      <img class="mod_code__img" src="//chenghuijie.github.io/demo/html2canvas/qrcode_chenghuijie.github.io.png" alt="" />
+    </div>
+<!--    <h2 class="mod_logo__dark">全民K歌</h2>-->
+  </div>
+
+  <input type="button" value="点击我：1. 先生成canvas，再生成图片" onclick="takeScreenshot()" style="position: absolute;top: 0;left: 0;">
+  <div id="j-img-container" style="display:none;position: absolute;top: 0;bottom:0;right: 0;left: 0;">
+    <a href="" download="poster.png" style="color: red;background: white;position: absolute;top: 0;left: 0;">再次点击我： 2. 尝试保存图片（兼容性堪忧）<br>现在下面的所有内容已变成一张图片，可以长按保存</a>
+  </div>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/html2canvas"></script>
+  <script type="text/javascript">
+  function takeScreenshot () {
+    const node = document.getElementById('j-poster')
+    html2canvas(node, {
+      useCORS: true,
+      height: node.offsetHeight,
+      width: node.offsetWidth,
+      scrollY: 0,
+      scrollX: 0
+    }).then(async (canvas) => {
+      let oImg = new Image()
+      const base64 = canvas.toDataURL()
+      oImg.src = base64  // 导出图片
+      oImg.style.maxWidth = '100vw'
+      oImg.style.maxHeight = '100vh'
+      const imgContainer = document.getElementById('j-img-container')
+      imgContainer.appendChild(oImg)  // 将生成的图片添加到body
+      imgContainer.style.display = 'block'
+      imgContainer.querySelector('a').href = base64
+    })
+  }
+  </script>
+
+</body>
+</html>

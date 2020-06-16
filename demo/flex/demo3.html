@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="cmn-hans">
+<head>
+  <meta charset="UTF-8">
+  <title>flex demo3</title>
+</head>
+<body class="Site">
+  <h1>粘性页脚</h1>
+  <h3>
+    方法：<br>
+    body 添加：display: flex; min-height: 100vh; flex-direction: column;；主要内容添加：flex-grow: 1;。
+  </h3>
+
+  <style>
+    .Site {
+      display: flex;
+      min-height: 100vh; /* 最小高度是屏幕高度 */
+      flex-direction: column; /* 主轴的方向为垂直方向 */
+
+      margin: 0;
+    }
+
+    .Site-content {
+      flex-grow: 1; /* 填补剩余空间 */
+    }
+  </style>
+
+  <main class="Site-content">
+    <a href="javascript:" id="j-a">点击打开/关闭内容</a>
+    主要内容
+    <div id="j-div">
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+      主要内容<br>
+    </div>
+  </main>
+  <footer style="background-color: aliceblue;">脚部</footer>
+
+  <script>
+  document.getElementById('j-a').addEventListener('click', function () {
+    document.getElementById('j-div').style.display = document.getElementById('j-div').style.display === 'none' ? 'block' : 'none'
+  })
+  </script>
+</body>
+</html>

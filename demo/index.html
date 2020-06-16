@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="cmn-hans">
+<head>
+  <meta charset="utf-8">
+
+  <!--PC-->
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="renderer" content="webkit">
+
+  <!--WAP-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no,email=no,address=no">
+
+  <!-- favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#2b5797">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>demo</title>
+
+  <script src="//cdn.jsdelivr.net/npm/vconsole"></script>
+  <script>new VConsole()</script>
+
+  <!--<script src="//cdn.jsdelivr.net/npm/eruda"></script>-->
+  <!--<script>eruda.init()</script>-->
+
+  <style>
+    p {
+      white-space: pre-line;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>浏览器UA</h2>
+  <a href="#" id="j-a-1">alert(navigator.userAgent)</a>
+  <p id="j-p-1"></p>
+  <script type="text/javascript">
+  var dom1 = document.getElementById('j-p-1')
+
+  console.log(dom1.innerHTML = navigator.userAgent)
+
+  document.getElementById('j-a-1').addEventListener('click', function (e) {
+    console.log(dom1.innerHTML = navigator.userAgent)
+    alert(navigator.userAgent)
+    e.stopPropagation()
+    e.preventDefault()
+  })
+  </script>
+  <hr>
+
+  <h2>所在系统</h2>
+  <a href="#" id="j-a-2">alert(所在系统)</a>
+  <p id="j-p-2"></p>
+  <script>
+  /**
+   * 判断所在系统
+   * @param {String} [ua = window.navigator.userAgent] - 用户代理
+   * @param {String} [pf = window.navigator.platform] - 系统平台类型
+   * @returns {String} os - 系统名：'iOS'|'Android'|'Windows Phone'|'macOS'|'Win2000'|'WinXP'|'Win2003'|'WinVista'|'Win7'|'Win10'|'Windows'|'Unix'|'Linux'
+   */
+  function detectOS (ua = window.navigator.userAgent, pf = window.navigator.platform) {
+    let os = ''
+
+    if (/iPhone|iPad|iPod|iOS/.test(ua)) {
+      os = 'iOS'
+    } else if (/Android/.test(ua)) {
+      os = 'Android'
+    } else if (/\bWindows Phone/.test(ua)) {
+      os = 'Windows Phone'
+    } else {
+      if (pf === 'Mac68K' || pf === 'MacPPC' || pf === 'Macintosh' || pf === 'MacIntel') {
+        os = 'macOS'
+      } else if (pf === 'Win32' || pf === 'Windows') {
+        if (/Windows NT 5.0/.test(ua) || /Windows 2000/.test(ua)) {
+          os = 'Win2000'
+        } else if (/Windows NT 5.1/.test(ua) || /Windows XP/.test(ua)) {
+          os = 'WinXP'
+        } else if (/Windows NT 5.2/.test(ua) || /Windows 2003/.test(ua)) {
+          os = 'Win2003'
+        } else if (/Windows NT 6.0/.test(ua) || /Windows Vista/.test(ua)) {
+          os = 'WinVista'
+        } else if (/Windows NT 6.1/.test(ua) || /Windows 7/.test(ua)) {
+          os = 'Win7'
+        } else if (/Windows NT 10.0/.test(ua) || /Windows 10/.test(ua)) {
+          os = 'Win10'
+        } else {
+          os = 'Windows'
+        }
+      } else if (pf === 'X11') {
+        os = 'Unix'
+      } else if (/Linux/.test(pf)) {
+        os = 'Linux'
+      }
+    }
+
+    return os
+  }
+
+  var dom2 = document.getElementById('j-p-2')
+
+  console.log(dom2.innerHTML = detectOS())
+
+  document.getElementById('j-a-2').addEventListener('click', function (e) {
+    console.log(dom2.innerHTML = detectOS())
+    alert(detectOS())
+    e.stopPropagation()
+    e.preventDefault()
+  })
+  </script>
+  <hr>
+
+  <h2>屏幕属性</h2>
+  <a href="#" id="j-a-3">alert(屏幕属性)</a>
+  <p id="j-p-3"></p>
+  <script type="text/javascript">
+  function printScreen () {
+    return `屏幕高度：${screen.height}。
+屏幕宽度：${screen.width}。
+屏幕可用高度：${screen.availHeight}。
+屏幕可用宽度：${screen.availWidth}。
+
+浏览器高度：${window.outerHeight}。
+浏览器宽度：${window.outerWidth}。
+浏览器内页面可用高度：${window.innerHeight}。
+浏览器内页面可用宽度：${window.innerWidth}。
+
+物理像素分辨率与CSS像素分辨率之比：${window.devicePixelRatio}。`
+  }
+
+  var dom3 = document.getElementById('j-p-3')
+
+  console.log(dom3.innerHTML = printScreen())
+
+  document.getElementById('j-a-3').addEventListener('click', function (e) {
+    console.log(dom3.innerHTML = printScreen())
+    alert(printScreen())
+    e.stopPropagation()
+    e.preventDefault()
+  })
+  </script>
+  <hr>
+
+  <h2>所在移动平台</h2>
+  <a href="#" id="j-a-4">alert(所在移动平台)</a>
+  <p id="j-p-4"></p>
+  <script>
+  // 判断移动平台（微信、QQ、微博、QQ空间、UC浏览器）
+  function platform (ua = window.navigator.userAgent) {
+    let platform
+
+    if (/MicroMessenger/.test(ua)) {
+      platform = 'wx'
+    } else if (/QQ\//.test(ua)) {
+      platform = 'qq'
+    } else if (/\bWeibo|__weibo__\d/.test(ua)) {
+      platform = 'weibo'
+    } else if (/Qzone\//.test(ua)) {
+      platform = 'qzone'
+    } else if (/UCBrowser/.test(ua)) {
+      platform = 'uc'
+    } else {
+      platform = 'other'
+    }
+
+    return platform
+  }
+
+  var dom4 = document.getElementById('j-p-4')
+
+  console.log(dom4.innerHTML = platform())
+
+  document.getElementById('j-a-4').addEventListener('click', function (e) {
+    console.log(dom4.innerHTML = platform())
+    alert(platform())
+    e.stopPropagation()
+    e.preventDefault()
+  })
+  </script>
+  <hr>
+
+  <h2>所在iOS版本号</h2>
+  <a href="#" id="j-a-5">alert(所在iOS版本号)</a>
+  <p id="j-p-5"></p>
+  <script>
+  // 判断iOS版本号
+  function versionIOS(ua = window.navigator.userAgent) {
+    return ua.toLowerCase().match(/cpu iphone os (.*?) like mac os/)?.[1] || '';
+  }
+
+  var dom5 = document.getElementById('j-p-5')
+
+  console.log(dom5.innerHTML = versionIOS())
+
+  document.getElementById('j-a-5').addEventListener('click', function (e) {
+    console.log(dom5.innerHTML = versionIOS())
+    alert(versionIOS())
+    e.stopPropagation()
+    e.preventDefault()
+  })
+  </script>
+  <hr>
+
+  <h2>所在Android版本号</h2>
+  <a href="#" id="j-a-6">alert(所在Android版本号)</a>
+  <p id="j-p-6"></p>
+  <script>
+  // 判断Android版本号
+  function versionAndroid(ua = window.navigator.userAgent) {
+    return ua.toLowerCase().match(/android (.*?);/)?.[1] || '';
+  }
+
+  var dom6 = document.getElementById('j-p-6')
+
+  console.log(dom6.innerHTML = versionAndroid())
+
+  document.getElementById('j-a-6').addEventListener('click', function (e) {
+    console.log(dom6.innerHTML = versionAndroid())
+    alert(versionAndroid())
+    e.stopPropagation()
+    e.preventDefault()
+  })
+  </script>
+  <hr>
+
+  <h2>判断所在ie所有版本</h2>
+  <a href="#" id="j-a-7">alert(判断所在ie所有版本)</a>
+  <p id="j-p-7"></p>
+  <script>
+  /**
+   * 判断ie所有版本
+   * @returns {Number} - ie版本号 或 false
+   */
+  function detectIE () {
+    var ua = window.navigator.userAgent;
+
+    var msie = ua.indexOf('MSIE ');
+    if (msie > 0) {
+
+      /* ie10- 返回版本号 */
+      return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+    }
+
+    var trident = ua.indexOf('Trident/');
+    if (trident > 0) {
+      var rv = ua.indexOf('rv:');
+
+      /* ie11 返回版本号 */
+      return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+    }
+
+    var edge = ua.indexOf('Edge/');
+    if (edge > 0) {
+
+      /* Edge(ie 12+) 返回版本号 */
+      return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+    }
+
+    /* 其他浏览器 返回false */
+    return false;
+  }
+
+  var dom7 = document.getElementById('j-p-7')
+
+  console.log(dom7.innerHTML = detectIE())
+
+  document.getElementById('j-a-7').addEventListener('click', function (e) {
+    console.log(dom7.innerHTML = detectIE())
+    alert(detectIE())
+    e.stopPropagation()
+    e.preventDefault()
+  })
+  </script>
+  <hr>
+
+</body>
+</html>

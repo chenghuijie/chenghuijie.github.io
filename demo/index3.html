@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="cmn-hans">
+<head>
+  <meta charset="utf-8">
+
+  <!--PC-->
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="renderer" content="webkit">
+
+  <!--WAP-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no,email=no,address=no">
+
+  <!-- favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#2b5797">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>demo3</title>
+
+  <script src="//cdn.jsdelivr.net/npm/vconsole"></script>
+  <script>new VConsole()</script>
+
+  <!--<script src="//cdn.jsdelivr.net/npm/eruda"></script>-->
+  <!--<script>eruda.init()</script>-->
+</head>
+<body>
+
+  <h2>滚动测试</h2>
+  <style>
+    .bounce {
+      overflow-y: scroll;
+      -webkit-overflow-scrolling: touch; /* 增加DOM的回弹效果（iOS） */
+
+      height: 100px;
+    }
+  </style>
+
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+    <li>0</li>
+  </ul>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+    <li>0</li>
+  </ul>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+    <li>0</li>
+  </ul>
+
+  <div class="bounce" id="j-bounce-1" style="width: 100px; background: blue;">
+    我使用了 ScrollFix<br>
+    a<br>
+    b<br>
+    c<br>
+    d<br>
+    e<br>
+    f<br>
+    g<br>
+    我是static
+  </div>
+
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+    <li>0</li>
+  </ul>
+
+  <div class="bounce" style="width: 100px; background: pink;">
+    我没有使用<br>
+    a<br>
+    b<br>
+    c<br>
+    d<br>
+    e<br>
+    f<br>
+    g<br>
+    我是static
+  </div>
+
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+    <li>0</li>
+  </ul>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+    <li>0</li>
+  </ul>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+    <li>0</li>
+  </ul>
+
+  <div class="bounce" id="j-bounce-2" style="width: 100px; position: fixed; top: 50%; left: 10%; background: red;">
+    我使用了 ScrollFix<br>
+    a<br>
+    b<br>
+    c<br>
+    d<br>
+    e<br>
+    f<br>
+    g<br>
+    我是fixed
+  </div>
+
+  <div class="bounce" style="width: 100px; position: fixed; top: 50%; right: 10%; background: yellow;">
+    我没有使用<br>
+    a<br>
+    b<br>
+    c<br>
+    d<br>
+    e<br>
+    f<br>
+    g<br>
+    我是fixed
+  </div>
+
+  <script>
+  const ScrollStopPropagation = function (dom) {
+    const _stopPropagation = function () {
+      const startTopScroll = dom.scrollTop  // 滚动高度
+      const domHeight = dom.offsetHeight  // 占据高度
+      const contentHeight = dom.scrollHeight  // 内容高度（占据高度+可滚动最大高度
+
+      /*
+       * 在触摸开始时，如果发现滚动区域已经处于极限状态时，就手工设置 scrollTop 的值，
+       * 将滚动内容向边缘方向偏移 1px（这实际上改变了滚动区域的极限状态），
+       * 从而诱使浏览器对滚动区块使用橡皮筋效果，而不会把触摸事件向上传播到 DOM 树（引起整页滚动）。
+       */
+      if (startTopScroll <= 0) {
+        dom.scrollTop = 1
+      } else if (startTopScroll + domHeight >= contentHeight) {
+        dom.scrollTop = contentHeight - domHeight - 1
+      }
+    }
+
+    dom.addEventListener('touchstart', _stopPropagation, false)
+
+    this.stop = () => {
+      dom.removeEventListener('touchstart', _stopPropagation, false)
+    }
+  }
+
+  /* 使用测试 */
+  const a = new ScrollStopPropagation(document.getElementById('j-bounce-1'))
+  const b = new ScrollStopPropagation(document.getElementById('j-bounce-2'))
+
+  // a.stop();
+  // b.stop();
+  </script>
+  <hr>
+
+  <h2>事件代理测试</h2>
+  <ul id="j-ul">
+    <li id="j-li-1">
+      li-1
+      <a href="javascript: void(0)" id="j-a-1">
+        a-1
+        <span id="j-span-1">
+          span-1
+        </span>
+        <img id="j-img-1" src="//via.placeholder.com/100?text=1">
+      </a>
+      <p id="j-p-1">p-1</p>
+    </li>
+    <li id="j-li-2">
+      li-2
+      <a href="javascript: void(0)" id="j-a-2">
+        a-2
+        <span id="j-span-2">
+          span-2
+        </span>
+        <img id="j-img-2" src="//via.placeholder.com/100?text=2">
+      </a>
+      <p id="j-p-2">p-2</p>
+    </li>
+  </ul>
+
+  <p id="j-p2"></p>
+  <script>
+  var p = document.getElementById('j-p2')
+  var ul = document.getElementById('j-ul')
+  ul.onclick = function (e) {
+    var event = e || window.event
+    var target = event.target || event.srcElement // 兼容ie8-
+    // 可以用dom.matches(CSS选择器)判断是否匹配选择器
+    console.log(event.currentTarget, target, p.innerHTML = target.id + '<br>' + p.innerHTML)
+  }
+  </script>
+  <hr>
+
+</body>
+</html>
