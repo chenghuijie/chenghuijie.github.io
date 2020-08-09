@@ -10,7 +10,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-var chatData = (function () {
+var chatdata = (function () {
     // 原始数据
     var rawData = {
         zhengfeijie: {
@@ -19,17 +19,17 @@ var chatData = (function () {
             data: [
                 {
                     time: "2020/08/09",
-                    value: 0,
+                    value: 0
                 },
                 {
                     time: "2020/08/08",
-                    value: 2,
+                    value: 2
                 },
                 {
                     time: "2020/08/10",
-                    value: 5,
-                },
-            ],
+                    value: 5
+                }
+            ]
         },
         ruanyujing: {
             id: 1,
@@ -37,17 +37,17 @@ var chatData = (function () {
             data: [
                 {
                     time: "2020/08/07",
-                    value: -2,
+                    value: -2
                 },
                 {
                     time: "2020/08/08",
-                    value: 2,
+                    value: 2
                 },
                 {
                     time: "2020/08/09",
-                    value: -6,
-                },
-            ],
+                    value: -6
+                }
+            ]
         },
         caofangning: {
             id: 2,
@@ -55,18 +55,18 @@ var chatData = (function () {
             data: [
                 {
                     time: "2020/07/07",
-                    value: 20,
+                    value: 20
                 },
                 {
                     time: "2020/08/08",
-                    value: 2,
+                    value: 2
                 },
                 {
                     time: "2020/09/09",
-                    value: 4,
-                },
-            ],
-        },
+                    value: 4
+                }
+            ]
+        }
     };
     var outputData = [];
     Object.entries(rawData).filter(function (_a) {
@@ -77,4 +77,4 @@ var chatData = (function () {
     });
     return outputData;
 })();
-console.log(chatData);
+console.log(chatdata);

@@ -4,7 +4,7 @@ type outputDataType = {
   value: number;
 }[];
 
-const chatData: outputDataType = (function () {
+const chatdata: outputDataType = (function () {
   // 原始数据
   const rawData: {
     [name: string]: {
@@ -19,17 +19,17 @@ const chatData: outputDataType = (function () {
       data: [
         {
           time: "2020/08/09",
-          value: 0,
+          value: 0
         },
         {
           time: "2020/08/08",
-          value: 2,
+          value: 2
         },
         {
           time: "2020/08/10",
-          value: 5,
-        },
-      ],
+          value: 5
+        }
+      ]
     },
     ruanyujing: {
       id: 1,
@@ -37,17 +37,17 @@ const chatData: outputDataType = (function () {
       data: [
         {
           time: "2020/08/07",
-          value: -2,
+          value: -2
         },
         {
           time: "2020/08/08",
-          value: 2,
+          value: 2
         },
         {
           time: "2020/08/09",
-          value: -6,
-        },
-      ],
+          value: -6
+        }
+      ]
     },
     caofangning: {
       id: 2,
@@ -55,18 +55,18 @@ const chatData: outputDataType = (function () {
       data: [
         {
           time: "2020/07/07",
-          value: 20,
+          value: 20
         },
         {
           time: "2020/08/08",
-          value: 2,
+          value: 2
         },
         {
           time: "2020/09/09",
-          value: 4,
-        },
-      ],
-    },
+          value: 4
+        }
+      ]
+    }
   };
 
   const outputData: outputDataType = [];
@@ -74,7 +74,7 @@ const chatData: outputDataType = (function () {
     detail.data.filter((timeAndValue) => {
       outputData.push({
         nickname: detail.nickname || name,
-        ...timeAndValue,
+        ...timeAndValue
       });
     });
   });
@@ -82,4 +82,4 @@ const chatData: outputDataType = (function () {
   return outputData;
 })();
 
-console.log(chatData);
+console.log(chatdata);
