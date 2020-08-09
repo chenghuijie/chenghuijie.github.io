@@ -61,7 +61,7 @@ var chatdata = (function () {
                 },
                 {
                     time: "2020/08/08",
-                    value: 22
+                    value: 100
                 },
                 {
                     time: "2020/08/09",
@@ -75,11 +75,11 @@ var chatdata = (function () {
             data: [
                 {
                     time: "2020/08/07",
-                    value: 20
+                    value: -200
                 },
                 {
                     time: "2020/08/08",
-                    value: 2
+                    value: 100
                 },
                 {
                     time: "2020/08/10",
