@@ -18,15 +18,24 @@ const chatdata: outputDataType = (function () {
       nickname: "✈️🐔",
       data: [
         {
-          time: "2020/08/09",
+          time: "2020/08/00",
+          value: 0
+        },
+
+        {
+          time: "2020/08/01",
+          value: 45
+        },
+        {
+          time: "2020/08/02",
           value: 0
         },
         {
-          time: "2020/08/08",
+          time: "2020/08/03",
           value: 2
         },
         {
-          time: "2020/08/10",
+          time: "2020/08/04",
           value: 5
         }
       ]
@@ -36,12 +45,24 @@ const chatdata: outputDataType = (function () {
       nickname: "静静",
       data: [
         {
-          time: "2020/08/07",
+          time: "2020/08/01",
+          value: -2
+        },
+        {
+          time: "2020/08/02",
+          value: 45
+        },
+        {
+          time: "2020/08/03",
+          value: 0
+        },
+        {
+          time: "2020/08/04",
           value: -2
         },
         {
           time: "2020/08/08",
-          value: 2
+          value: 22
         },
         {
           time: "2020/08/09",
@@ -54,15 +75,28 @@ const chatdata: outputDataType = (function () {
       nickname: "经理",
       data: [
         {
-          time: "2020/07/07",
+          time: "2020/08/07",
           value: 20
         },
         {
           time: "2020/08/08",
           value: 2
         },
+
         {
-          time: "2020/09/09",
+          time: "2020/08/10",
+          value: -2
+        },
+        {
+          time: "2020/08/02",
+          value: 22
+        },
+        {
+          time: "2020/08/09",
+          value: -6
+        },
+        {
+          time: "2020/08/09",
           value: 4
         }
       ]

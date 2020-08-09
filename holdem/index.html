@@ -39,11 +39,11 @@
   </script>
   <script type="text/babel">
   ReactDOM.render((
-    <Chart height={320} autoFit data={chatdata}>
+    <Chart padding={20} height={500} animate autoFit data={chatdata}>
+      <Line shape="smooth" position="time*value" color="nickname" label="value" />
+      <Point position="time*value" color="nickname" label="value"/>
+      <Area shape="smooth" position="time*value" color="nickname" label="value"/>
       <Slider />
-      <Line shape="smooth" position="time*value" color="nickname" />
-      <Point position="time*value" color="nickname" />
-      <Area position="time*value" color="nickname" />
     </Chart>
   ), document.getElementById("root"));
   </script>
