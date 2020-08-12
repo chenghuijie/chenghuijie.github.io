@@ -24,7 +24,7 @@ const chatdata: outputDataType = (function () {
 
         {
           time: "2020/08/01",
-          value: 45
+          value: 450
         },
         {
           time: "2020/08/02",
