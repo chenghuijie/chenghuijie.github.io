@@ -22,6 +22,10 @@ let chatdata: outputDataType = [];
           time: "2020/08/16",
           value: -512,
         },
+        {
+          time: "2020/08/22",
+          value: 242,
+        },
       ],
     },
     ruanyujing: {
@@ -30,6 +34,10 @@ let chatdata: outputDataType = [];
         {
           time: "2020/08/16",
           value: -101,
+        },
+        {
+          time: "2020/08/22",
+          value: 242,
         },
       ],
     },
@@ -49,6 +57,10 @@ let chatdata: outputDataType = [];
           time: "2020/08/16",
           value: 631,
         },
+        {
+          time: "2020/08/22",
+          value: -53,
+        },
       ],
     },
     linyanzhi: {
@@ -66,6 +78,37 @@ let chatdata: outputDataType = [];
         {
           time: "2020/08/16",
           value: -374,
+        },
+        {
+          time: "2020/08/22",
+          value: 25,
+        },
+      ],
+    },
+    chenkangyi: {
+      nickname: "康怡",
+      data: [
+        {
+          time: "2020/08/22",
+          value: -5,
+        },
+      ],
+    },
+    weichangjiang: {
+      nickname: "长江",
+      data: [
+        {
+          time: "2020/08/22",
+          value: -309,
+        },
+      ],
+    },
+    huangzhaobiao: {
+      nickname: "袜子",
+      data: [
+        {
+          time: "2020/08/22",
+          value: -137,
         },
       ],
     },
@@ -103,7 +146,7 @@ let chatdata: outputDataType = [];
     detail.data.filter((timeAndValue) => {
       outputData.push({
         id: name,
-        nickname: detail.nickname || name,
+        nickname: `${detail.nickname || name}(${detail.data.length})`,
         ...timeAndValue,
       });
     });
@@ -117,6 +160,7 @@ let chatdata: outputDataType = [];
     "zhaohaibo",
     "linyanzhi",
     "yousiyao",
+    "chenkangyi",
   ];
 
   originChatdata = outputData;
