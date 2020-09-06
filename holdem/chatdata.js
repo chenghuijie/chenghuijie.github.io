@@ -26,6 +26,10 @@ var chatdata = [];
                     time: "2020/08/22",
                     value: 242,
                 },
+                {
+                    time: "2020/09/06",
+                    value: -322,
+                },
             ],
         },
         ruanyujing: {
@@ -39,6 +43,10 @@ var chatdata = [];
                     time: "2020/08/22",
                     value: 242,
                 },
+                {
+                    time: "2020/09/06",
+                    value: -656,
+                },
             ],
         },
         caofangning: {
@@ -47,6 +55,15 @@ var chatdata = [];
                 {
                     time: "2020/08/16",
                     value: 362,
+                },
+            ],
+        },
+        dongchencheng: {
+            nickname: "晨程",
+            data: [
+                {
+                    time: "2020/09/06",
+                    value: 1433,
                 },
             ],
         },
@@ -63,15 +80,6 @@ var chatdata = [];
                 },
             ],
         },
-        linyanzhi: {
-            nickname: "彦志",
-            data: [
-                {
-                    time: "2020/08/16",
-                    value: 73,
-                },
-            ],
-        },
         zhaohaibo: {
             nickname: "波哥",
             data: [
@@ -83,6 +91,32 @@ var chatdata = [];
                     time: "2020/08/22",
                     value: 25,
                 },
+                {
+                    time: "2020/09/06",
+                    value: -415,
+                },
+            ],
+        },
+        linyanzhi: {
+            nickname: "彦志",
+            data: [
+                {
+                    time: "2020/08/16",
+                    value: 73,
+                },
+                {
+                    time: "2020/09/06",
+                    value: 374,
+                },
+            ],
+        },
+        chenqiaojun: {
+            nickname: "Kendy",
+            data: [
+                {
+                    time: "2020/09/06",
+                    value: 0,
+                },
             ],
         },
         chenkangyi: {
@@ -92,6 +126,10 @@ var chatdata = [];
                     time: "2020/08/22",
                     value: -5,
                 },
+                {
+                    time: "2020/09/06",
+                    value: 731,
+                },
             ],
         },
         weichangjiang: {
@@ -100,6 +138,15 @@ var chatdata = [];
                 {
                     time: "2020/08/22",
                     value: -309,
+                },
+            ],
+        },
+        yangbai: {
+            nickname: "柏哥",
+            data: [
+                {
+                    time: "2020/09/06",
+                    value: -1145,
                 },
             ],
         },
@@ -152,9 +199,11 @@ var chatdata = [];
         "zhengfeijie",
         "ruanyujing",
         "caofangning",
+        "dongchencheng",
+        "yousiyao",
         "zhaohaibo",
         "linyanzhi",
-        "yousiyao",
+        "chenqiaojun",
         "chenkangyi",
     ];
     originChatdata = outputData;

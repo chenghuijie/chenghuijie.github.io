@@ -39,10 +39,22 @@
   </script>
   <script type="text/babel">
   ReactDOM.render((
-    <Chart padding="auto" appendPadding={[35, 0, 0, 5]} height={450} animate autoFit data={chatdata}>
+    <Chart
+      padding="auto"
+      appendPadding={[35, 15, 0, 5]}
+      height={450}
+      animate
+      autoFit
+      scale={{
+        "time": {
+          type: "timeCat"
+        }
+      }}
+      data={chatdata}
+    >
       <Line shape="smooth" position="time*value" color="nickname" label="value" />
-      <Point position="time*value" color="nickname" label="value"/>
-      <Area shape="smooth" position="time*value" color="nickname" label="value"/>
+      <Point position="time*value" color="nickname" label="value" />
+      <Area shape="smooth" position="time*value" color="nickname" label="value" />
       {/*<Slider />*/}
     </Chart>
   ), document.getElementById("root"));
