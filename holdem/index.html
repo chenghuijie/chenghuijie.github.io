@@ -25,7 +25,9 @@
 </head>
 <body>
   <h1>德州战绩！</h1>
-  <div id="root"></div>
+  <div id="root1"></div>
+  <hr>
+  <div id="root2"></div>
   <br>
 
   <script crossorigin src="//cdn.jsdelivr.net/npm/react@16/umd/react.production.min.js"></script>
@@ -33,7 +35,7 @@
   <script crossorigin src="//cdn.jsdelivr.net/npm/babel-standalone@6/babel.min.js"></script>
   <script crossorigin src="//cdn.jsdelivr.net/npm/bizcharts@4/umd/BizCharts.min.js"></script>
 
-  <script src="./chatdata.js"></script>
+  <script src="./chartdata.js"></script>
   <script>
   const { Chart, Line, Point, /*Slider,*/ Area } = window.BizCharts;
   </script>
@@ -50,14 +52,51 @@
           type: "timeCat"
         }
       }}
-      data={chatdata}
+      data={chartdata}
     >
       <Line shape="smooth" position="time*value" color="nickname" label="value" />
       <Point position="time*value" color="nickname" label="value" />
       <Area shape="smooth" position="time*value" color="nickname" label="value" />
       {/*<Slider />*/}
     </Chart>
-  ), document.getElementById("root"));
+  ), document.getElementById("root1"));
+  </script>
+
+  <script>
+  const sumArray = {};
+  chartdata.filter((data) => {
+    if (sumArray[data.id]) {
+      sumArray[data.id].sum += data.value;
+      sumArray[data.id].process = `${sumArray[data.id].process}${data.value >= 0 ? `+${data.value}` : data.value}`;
+      sumArray[data.id].times += 1;
+    } else {
+      sumArray[data.id] = {
+        nickname: data.nickname,
+        sum: data.value,
+        process: data.value,
+        times: 1
+      };
+    }
+  });
+  </script>
+  <script type="text/babel">
+  ReactDOM.render((
+    <table style={{ "tableLayout": "fixed" }}>
+      <tr>
+        <th>名称(盘数)</th>
+        <th>总分</th>
+      </tr>
+
+      {Object.values(sumArray).map((data) => {
+        return (
+          <tr>
+            <td>{data.nickname}</td>
+            <td>{`${data.times === 1 ? `${data.sum}` : `${data.sum}=${data.process}`}`}</td>
+          </tr>
+        );
+      })}
+    </table>
+  ), document.getElementById("root2"));
   </script>
 
 </body>

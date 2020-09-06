@@ -5,8 +5,8 @@ type outputDataType = {
   value: number;
 }[];
 
-let originChatdata: outputDataType = [];
-let chatdata: outputDataType = [];
+let originChartdata: outputDataType = [];
+let chartdata: outputDataType = [];
 (function () {
   // 原始数据
   const rawData: {
@@ -213,11 +213,11 @@ let chatdata: outputDataType = [];
     "chenkangyi",
   ];
 
-  originChatdata = outputData;
+  originChartdata = outputData;
 
-  chatdata = outputData.filter((data) => {
+  chartdata = outputData.filter((data) => {
     return filteredId.includes(data.id);
   });
 })();
 
-console.log(originChatdata, chatdata);
+console.log(originChartdata, chartdata);

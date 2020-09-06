@@ -10,8 +10,8 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-var originChatdata = [];
-var chatdata = [];
+var originChartdata = [];
+var chartdata = [];
 (function () {
     // 原始数据
     var rawData = {
@@ -206,9 +206,9 @@ var chatdata = [];
         "chenqiaojun",
         "chenkangyi",
     ];
-    originChatdata = outputData;
-    chatdata = outputData.filter(function (data) {
+    originChartdata = outputData;
+    chartdata = outputData.filter(function (data) {
         return filteredId.includes(data.id);
     });
 })();
-console.log(originChatdata, chatdata);
+console.log(originChartdata, chartdata);
