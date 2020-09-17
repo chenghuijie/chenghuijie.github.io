@@ -87,7 +87,7 @@
     } catch {
       try {
         // 需要浏览器tab是active时或与tab有交互时才能触发
-        let textArea = document.createElement("textArea");
+        let textArea = document.createElement("input");
 
         textArea.value = text;
         document.body.appendChild(textArea);
