@@ -8,7 +8,10 @@
   <meta name="renderer" content="webkit">
 
   <!--WAP-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+  >
   <meta name="format-detection" content="telephone=no,email=no,address=no">
 
   <!-- favicon -->
@@ -23,7 +26,7 @@
   <title>demo5</title>
 
   <script src="//cdn.jsdelivr.net/npm/vconsole"></script>
-  <script>new VConsole()</script>
+  <script>new VConsole();</script>
 
   <!--<script src="//cdn.jsdelivr.net/npm/eruda"></script>-->
   <!--<script>eruda.init()</script>-->
@@ -72,6 +75,41 @@
   </p>
 
   <hr>
+
+  <h1>JS写入剪切板</h1>
+
+  <input id="j-input-1" type="text" value="要复制的内容啦" placeholder="写点什么呗~">
+  <a href="javascrpit:" id="j-a-1"><-点击 复制</a>
+  <script>
+  async function clipboard (text) {
+    try {
+      await window.navigator.clipboard.writeText(text); // 新接口
+    } catch {
+      try {
+        // 需要浏览器tab是active时或与tab有交互时才能触发
+        let textArea = document.createElement("textArea");
+
+        textArea.value = text;
+        document.body.appendChild(textArea);
+        textArea.select();
+
+        document.execCommand("cut"); // 已废弃
+        document.body.removeChild(textArea);
+      } catch {
+        return Promise.reject(text);
+      }
+    }
+  }
+
+  document.getElementById("j-a-1").addEventListener("click", function () {
+    clipboard(document.getElementById("j-input-1").value)
+      .then(() => {console.log("成功");})
+      .catch((text) => {alert(`\`${text}\`写入失败！`);});
+  }, false);
+  </script>
+
+  <hr>
+
 
 </body>
 </html>
