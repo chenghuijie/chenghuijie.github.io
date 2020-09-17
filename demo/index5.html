@@ -79,9 +79,11 @@
   <h1>JS写入剪切板</h1>
 
   <input id="j-input-1" type="text" value="这是要写入剪切板的内容啦" placeholder="写点什么呗~">
-  <a href="javascrpit:" id="j-a-1"><-点击 复制</a>
+  <a href="javascript:" id="j-a-1"><-点击 复制</a>
   <script>
   async function clipboard (text) {
+    text = String(text);
+
     try {
       await window.navigator.clipboard.writeText(text); // 新接口
     } catch {
