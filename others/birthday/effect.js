@@ -17,7 +17,7 @@ $('document').ready(function(){
 		});
 
 	$('#turn_on').click(function(){
-		const JBAppear = new Date(1992, 0, 22)
+		const JBAppear = new Date(1992, 0, 28)
 		const now = new Date()
 		// 生日
 		if ((JBAppear.getMonth() === now.getMonth()) && (Math.abs(JBAppear.getDate() - now.getDate()) < 2)){
