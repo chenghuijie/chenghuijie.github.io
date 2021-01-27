@@ -20,9 +20,9 @@ $('document').ready(function(){
 		const JBAppear = new Date(1992, 0, 28)
 		const now = new Date()
 		// 生日
-		if ((JBAppear.getMonth() === now.getMonth()) && (Math.abs(JBAppear.getDate() - now.getDate()) < 2)){
+		if ((JBAppear.getMonth() === now.getMonth()) && (Math.abs(JBAppear.getDate() - now.getDate()) < 3)){
 			$("#j-age")
-        .text(`我静${now.getFullYear() - JBAppear.getFullYear()}岁了！🤭`)
+        .html(`我静 <del>${now.getFullYear() - JBAppear.getFullYear()}</del> 18岁了！🤩`)
         .one("click", function () {
           $(this).fadeOut();
         });
