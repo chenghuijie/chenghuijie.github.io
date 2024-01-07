@@ -69,5 +69,6 @@
     ![设置4](./images/设置-4.png)
     ![设置5](./images/设置-5.png)
     ![设置6](./images/设置-6.png)
-    ![设置7](./images/设置-7.jpg)
+    ![设置7](./images/设置-7.png)
     ![设置8](./images/设置-8.jpg)
+    ![设置9](./images/设置-9.jpg)
