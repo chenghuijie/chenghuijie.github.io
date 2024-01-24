@@ -32,6 +32,7 @@
     p {
       white-space: pre-line;
     }
+
     a {
       display: block;
     }
@@ -39,31 +40,29 @@
 </head>
 <body>
 
-  <h2>外部app打开lark</h2>
-  <a href="https://applink.larksuite.com/client/web_app/open?appId=cli_a36058e88d785009&lk_target_url=https%3A%2F%2Fiauthtest.luckincoffee.com%2Fv2%2Flark%2Flogin%3Fclient_id%3D6bcf01ddd3d756ff2ec1%26scope%3Dprofile%252Cemail%252Cphone%26tenant_code%3DLKSG%26redirect_uri%3Dhttps%253A%252F%252Fiemptest.luckincoffee.com%252Fapi%252Fauthcallback%26state%3Dhttps%253A%252F%252Fiemptest.luckincoffee.com%252Fiot%252Fmain" target="_blank">打开lark内应用</a>
-  <a href="#" id="j-a-1">打开lark内应用</a>
-  <p id="j-p-1"></p>
-  <script type="text/javascript">
-  var dom1 = document.getElementById('j-p-1')
-
-  document.getElementById('j-a-1').addEventListener('click', function (e) {
+<h2>外部app打开lark</h2>
+<a href="#" id="j-a-1" target="_blank">打开lark内应用</a>
+<script type="text/javascript">
+  (function () {
     // 应用凭证
-    const appId =  'cli_a36058e88d785009'
+    const appId = 'cli_a36058e88d785009'
     // 与「网站应用」配置一样的 协议名scheme和域名domain 的任意url
     const lk_target_url = encodeURIComponent('https://iauthtest.luckincoffee.com/v2/lark/login?client_id=6bcf01ddd3d756ff2ec1&scope=profile%2Cemail%2Cphone&tenant_code=LKSG&redirect_uri=https%3A%2F%2Fiemptest.luckincoffee.com%2Fapi%2Fauthcallback&state=https%3A%2F%2Fiemptest.luckincoffee.com%2Fiot%2Fmain')
     const mode = 'appCenter'
 
     // https://open.larksuite.com/document/common-capabilities/applink-protocol/supported-protocol/open-an-h5-app
     const url = `https://applink.larksuite.com/client/web_app/open?appId=${appId}&lk_target_url=${lk_target_url}&mode=${mode}`
-    location.href=url
 
-    dom1.innerText = url
+    document.getElementById('j-a-1').href = url
+  })()
 
-    e.stopPropagation()
-    e.preventDefault()
-  })
-  </script>
-  <hr>
+  // document.getElementById('j-a-1').addEventListener('click', function (e) {
+  //
+  //   e.stopPropagation()
+  //   e.preventDefault()
+  // })
+</script>
+<hr>
 
 </body>
 </html>
