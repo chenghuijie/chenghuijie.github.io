@@ -36,10 +36,34 @@
 </head>
 <body>
 
-  <h2>浏览器UA</h2>
-  <a href="#" id="j-a-1">alert(navigator.userAgent)</a>
-  <p id="j-p-1"></p>
-  <script type="text/javascript">
+<h2>浏览器UA</h2>
+<a href="#" id="j-a-0">alert(navigator)</a>
+<p id="j-p-0"></p>
+<script type="text/javascript">
+  // 获取所有键值对，包括原型链上的（同名的以第一次为准）
+  function getAllKeyValue(obj) {
+    var _obj = {};
+    for (var i in obj) _obj[i] = obj[i];
+
+    return _obj
+  }
+
+  var dom0 = document.getElementById('j-p-0')
+
+  var obj = getAllKeyValue(navigator)
+  console.log(dom0.innerHTML = JSON.stringify(obj))
+
+  document.getElementById('j-a-0').addEventListener('click', function (e) {
+    console.log(dom0.innerHTML = JSON.stringify(obj))
+    alert(JSON.stringify(obj))
+    e.stopPropagation()
+    e.preventDefault()
+  })
+</script>
+
+<a href="#" id="j-a-1">alert(navigator.userAgent)</a>
+<p id="j-p-1"></p>
+<script type="text/javascript">
   var dom1 = document.getElementById('j-p-1')
 
   console.log(dom1.innerHTML = navigator.userAgent)
@@ -50,20 +74,20 @@
     e.stopPropagation()
     e.preventDefault()
   })
-  </script>
-  <hr>
+</script>
+<hr>
 
-  <h2>所在系统</h2>
-  <a href="#" id="j-a-2">alert(所在系统)</a>
-  <p id="j-p-2"></p>
-  <script>
+<h2>所在系统</h2>
+<a href="#" id="j-a-2">alert(所在系统)</a>
+<p id="j-p-2"></p>
+<script>
   /**
    * 判断所在系统
    * @param {String} [ua = window.navigator.userAgent] - 用户代理
    * @param {String} [pf = window.navigator.platform] - 系统平台类型
    * @returns {String} os - 系统名：'iOS'|'Android'|'Windows Phone'|'macOS'|'Win2000'|'WinXP'|'Win2003'|'WinVista'|'Win7'|'Win10'|'Windows'|'Unix'|'Linux'
    */
-  function detectOS (ua = window.navigator.userAgent, pf = window.navigator.platform) {
+  function detectOS(ua = window.navigator.userAgent, pf = window.navigator.platform) {
     let os = ''
 
     if (/iPhone|iPad|iPod|iOS/.test(ua)) {
@@ -111,14 +135,14 @@
     e.stopPropagation()
     e.preventDefault()
   })
-  </script>
-  <hr>
+</script>
+<hr>
 
-  <h2>屏幕属性</h2>
-  <a href="#" id="j-a-3">alert(屏幕属性)</a>
-  <p id="j-p-3"></p>
-  <script type="text/javascript">
-  function printScreen () {
+<h2>屏幕属性</h2>
+<a href="#" id="j-a-3">alert(屏幕属性)</a>
+<p id="j-p-3"></p>
+<script type="text/javascript">
+  function printScreen() {
     return `屏幕高度：${screen.height}。
 屏幕宽度：${screen.width}。
 屏幕可用高度：${screen.availHeight}。
@@ -142,15 +166,15 @@
     e.stopPropagation()
     e.preventDefault()
   })
-  </script>
-  <hr>
+</script>
+<hr>
 
-  <h2>所在移动平台</h2>
-  <a href="#" id="j-a-4">alert(所在移动平台)</a>
-  <p id="j-p-4"></p>
-  <script>
+<h2>所在移动平台</h2>
+<a href="#" id="j-a-4">alert(所在移动平台)</a>
+<p id="j-p-4"></p>
+<script>
   // 判断移动平台（微信、QQ、微博、QQ空间、UC浏览器）
-  function platform (ua = window.navigator.userAgent) {
+  function platform(ua = window.navigator.userAgent) {
     let platform
 
     if (/MicroMessenger/.test(ua)) {
@@ -180,13 +204,13 @@
     e.stopPropagation()
     e.preventDefault()
   })
-  </script>
-  <hr>
+</script>
+<hr>
 
-  <h2>所在iOS版本号</h2>
-  <a href="#" id="j-a-5">alert(所在iOS版本号)</a>
-  <p id="j-p-5"></p>
-  <script>
+<h2>所在iOS版本号</h2>
+<a href="#" id="j-a-5">alert(所在iOS版本号)</a>
+<p id="j-p-5"></p>
+<script>
   // 判断iOS版本号
   function versionIOS(ua = window.navigator.userAgent) {
     return ua.toLowerCase().match(/cpu iphone os (.*?) like mac os/)?.[1] || '';
@@ -202,13 +226,13 @@
     e.stopPropagation()
     e.preventDefault()
   })
-  </script>
-  <hr>
+</script>
+<hr>
 
-  <h2>所在Android版本号</h2>
-  <a href="#" id="j-a-6">alert(所在Android版本号)</a>
-  <p id="j-p-6"></p>
-  <script>
+<h2>所在Android版本号</h2>
+<a href="#" id="j-a-6">alert(所在Android版本号)</a>
+<p id="j-p-6"></p>
+<script>
   // 判断Android版本号
   function versionAndroid(ua = window.navigator.userAgent) {
     return ua.toLowerCase().match(/android (.*?);/)?.[1] || '';
@@ -224,18 +248,18 @@
     e.stopPropagation()
     e.preventDefault()
   })
-  </script>
-  <hr>
+</script>
+<hr>
 
-  <h2>判断所在ie所有版本</h2>
-  <a href="#" id="j-a-7">alert(判断所在ie所有版本)</a>
-  <p id="j-p-7"></p>
-  <script>
+<h2>判断所在ie所有版本</h2>
+<a href="#" id="j-a-7">alert(判断所在ie所有版本)</a>
+<p id="j-p-7"></p>
+<script>
   /**
    * 判断ie所有版本
    * @returns {Number} - ie版本号 或 false
    */
-  function detectIE () {
+  function detectIE() {
     var ua = window.navigator.userAgent;
 
     var msie = ua.indexOf('MSIE ');
@@ -274,8 +298,8 @@
     e.stopPropagation()
     e.preventDefault()
   })
-  </script>
-  <hr>
+</script>
+<hr>
 
 </body>
 </html>
