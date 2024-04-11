@@ -37,17 +37,19 @@
 <body>
 
 <h2>设置cookie</h2>
+<p id="j-p-0"></p>
 <a href="#" id="j-a-0"></a>
 <a href="#" id="j-a-1"></a>
 <a href="#" id="j-a-2">刷新展示cookie</a>
-<p id="j-p-0"></p>
+<p id="j-p-1"></p>
 <hr>
 <script type="text/javascript">
   var keyName = 'cookie-num'
   sessionStorage.setItem(keyName, Number(sessionStorage.getItem(keyName) ?? 0) + 1)
   var num = sessionStorage.getItem(keyName)
+  document.getElementById('j-p-0').innerHTML = `保存的sessionStorage的cookie-num键值为：${num}`
 
-  var dom0 = document.getElementById('j-p-0')
+  var dom0 = document.getElementById('j-p-1')
   dom0.innerHTML = document.cookie
 
   var domA0 = document.getElementById('j-a-0')
