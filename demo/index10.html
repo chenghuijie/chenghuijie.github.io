@@ -75,6 +75,14 @@
   })
 </script>
 <hr>
+<a href="#" id="j-a-3">刷新页面</a>
+<script>
+  document.getElementById('j-a-3').addEventListener('click', function (e) {
+    window.location.reload();
+    e.stopPropagation()
+    e.preventDefault()
+  })
+</script>
 
 </body>
 </html>
