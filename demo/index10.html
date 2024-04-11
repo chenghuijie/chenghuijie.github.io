@@ -44,8 +44,8 @@
 <hr>
 <script type="text/javascript">
   var keyName = 'cookie-num'
-  localStorage.setItem(keyName, Number(localStorage.getItem(keyName) ?? 0) + 1)
-  var num = localStorage.getItem(keyName)
+  sessionStorage.setItem(keyName, Number(sessionStorage.getItem(keyName) ?? 0) + 1)
+  var num = sessionStorage.getItem(keyName)
 
   var dom0 = document.getElementById('j-p-0')
   dom0.innerHTML = document.cookie
