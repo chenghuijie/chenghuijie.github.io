@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="cmn-hans">
+<head>
+  <meta charset="utf-8">
+
+  <!--PC-->
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="renderer" content="webkit">
+
+  <!--WAP-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no,email=no,address=no">
+
+  <!-- favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#2b5797">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>demo10</title>
+
+  <script src="//cdn.jsdelivr.net/npm/vconsole"></script>
+  <script>new VConsole()</script>
+
+  <!--<script src="//cdn.jsdelivr.net/npm/eruda"></script>-->
+  <!--<script>eruda.init()</script>-->
+
+  <style>
+    a {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<h2>设置cookie</h2>
+<a href="#" id="j-a-0">document.cookie="a=1"（不设置时间，会话期间存在）</a>
+<a href="#" id="j-a-1">document.cookie="b=1; expires=Fri, 31 Dec 9999 23:59:59 GMT"</a>
+<a href="#" id="j-a-2">刷新展示cookie</a>
+<p id="j-p-0"></p>
+<hr>
+<script type="text/javascript">
+  var dom0 = document.getElementById('j-p-0')
+  dom0.innerHTML = document.cookie
+
+  document.getElementById('j-a-0').addEventListener('click', function (e) {
+    document.cookie = "a=1";
+    console.log(dom0.innerHTML = document.cookie)
+    e.stopPropagation()
+    e.preventDefault()
+  })
+  document.getElementById('j-a-1').addEventListener('click', function (e) {
+    document.cookie = "b=1; expires=Fri, 31 Dec 9999 23:59:59 GMT";
+    console.log(dom0.innerHTML = document.cookie)
+    e.stopPropagation()
+    e.preventDefault()
+  })
+  document.getElementById('j-a-2').addEventListener('click', function (e) {
+    console.log(dom0.innerHTML = document.cookie)
+    e.stopPropagation()
+    e.preventDefault()
+  })
+</script>
+
+</body>
+</html>
