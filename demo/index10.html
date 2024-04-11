@@ -37,23 +37,31 @@
 <body>
 
 <h2>设置cookie</h2>
-<a href="#" id="j-a-0">document.cookie="a=1"（不设置时间，会话期间存在）</a>
-<a href="#" id="j-a-1">document.cookie="b=1; expires=Fri, 31 Dec 9999 23:59:59 GMT"</a>
+<a href="#" id="j-a-0"></a>
+<a href="#" id="j-a-1"></a>
 <a href="#" id="j-a-2">刷新展示cookie</a>
 <p id="j-p-0"></p>
 <hr>
 <script type="text/javascript">
+  var keyName = 'cookie-num'
+  localStorage.setItem(keyName, Number(localStorage.getItem(keyName) ?? 0) + 1)
+  var num = localStorage.getItem(keyName)
+
   var dom0 = document.getElementById('j-p-0')
   dom0.innerHTML = document.cookie
 
-  document.getElementById('j-a-0').addEventListener('click', function (e) {
-    document.cookie = "a=1";
+  var domA0 = document.getElementById('j-a-0')
+  domA0.innerText = `document.cookie="a=${num}"（不设置过期时间，则会话期间存在）`
+  domA0.addEventListener('click', function (e) {
+    document.cookie = `a=${num}`;
     console.log(dom0.innerHTML = document.cookie)
     e.stopPropagation()
     e.preventDefault()
   })
-  document.getElementById('j-a-1').addEventListener('click', function (e) {
-    document.cookie = "b=1; expires=Fri, 31 Dec 9999 23:59:59 GMT";
+  var domA1 = document.getElementById('j-a-1')
+  domA1.innerText = `document.cookie="b=${num}; expires=Fri, 31 Dec 9999 23:59:59 GMT"（设置过期时间为无限久）`
+  domA1.addEventListener('click', function (e) {
+    document.cookie = `b=${num}; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
     console.log(dom0.innerHTML = document.cookie)
     e.stopPropagation()
     e.preventDefault()
