@@ -35,6 +35,47 @@
 <button style="height: 200px;width: 200px;background: beige;">
   button 为什么呢？
 </button>
+<hr>
+
+<h2>JS下载（download属性）</h2>
+<a
+  class="j-a"
+  href="https://ilucky-fe-outside-oss-test.oss-cn-beijing.aliyuncs.com/luckyfranchise/import-error-20240523151136139.xlsx"
+  download="1.xlsx">点击下载1</a>
+<a
+  class="j-a"
+  href="https://ilucky-fe-oss-test.luckincoffee.com/iadmin/401d36b9-3173-48ed-be1e-a4da233f1c61.xlsx"
+  download>点击下载2</a>
+<script>
+  function getBlob(fileUrl, filename) {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', fileUrl, true);
+    xhr.responseType = 'blob';
+    xhr.onload = () => {
+      if (xhr.status === 200) {
+        const link = document.createElement('a');
+        link.href = window.URL.createObjectURL(xhr.response);
+        link.download = filename;
+
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        window.URL.revokeObjectURL(link.href);
+      }
+    };
+    xhr.send();
+  }
+
+  document.querySelectorAll('.j-a').forEach((dom) => {
+    dom.addEventListener('click', (e) => {
+      console.log(e.target.href, e.target.download)
+      getBlob(e.target.href, e.target.download)
+      e.preventDefault()
+    }, false)
+  })
+</script>
 
 </body>
 </html>
