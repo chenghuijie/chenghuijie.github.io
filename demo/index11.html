@@ -102,5 +102,68 @@
   })
 </script>
 
+<hr>
+<h2>@media中的and后面必须加空格，否则无效</h2>
+<style>
+  #j-div {
+    width: 800px;
+    height: 500px;
+    padding: 10px;
+    font-family: monospace;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+</style>
+<textarea id="j-div">
+  /* 生效 */
+  @media (min-width: 10px) and (max-width: 12000px) {
+    #j-div {
+      color: red;
+    }
+  }
+  /* 生效 */
+  @media(min-width: 10px) and (max-width: 12000px) {
+    #j-div {
+      font-style: italic;
+    }
+  }
+  /* 不生效 */
+  @media (min-width: 10px) and(max-width: 12000px) {
+    #j-div {
+      background: yellow;
+    }
+  }
+  /* 不生效 */
+  @media(min-width: 10px) and(max-width: 12000px) {
+    #j-div {
+      box-shadow: 0 0 10px 10px black;
+    }
+  }
+</textarea>
+
+<script>
+  function applyCSS() {
+      // 获取用户输入的CSS内容
+      const cssContent = document.getElementById('j-div').value;
+
+      // 创建或获取<style>标签
+      let styleTag = document.getElementById('j-dynamicStyle');
+      if (!styleTag) {
+          styleTag = document.createElement('style');
+          styleTag.id = 'j-dynamicStyle';
+          document.head.appendChild(styleTag);
+      }
+
+      // 将用户输入的CSS内容插入到<style>标签中
+      styleTag.textContent = cssContent;
+  }
+
+  document.getElementById('j-div').addEventListener('input', ()=>{
+    applyCSS()
+  }, false)
+
+  applyCSS()
+</script>
+
 </body>
 </html>
