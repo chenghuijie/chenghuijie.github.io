@@ -37,12 +37,14 @@
   </head>
   <body>
     <p>
-      try:
+      1. try:
       <pre>new IntlMessageFormat.IntlMessageFormat( `{year, number, integer}`, 'en-US' ).format({year: 1})</pre>
     </pre>
-    <p>try: <pre>DOMPurify.sanitize('xss内容')</pre></p>
+    <p>2. try: <pre>DOMPurify.sanitize('xss内容')</pre></p>
+    <p>3. try: <pre>moment()</pre></p>
 
     <script src="//cdn.jsdelivr.net/npm/intl-messageformat/intl-messageformat.iife.js"></script>
     <script src="//cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/moment/min/moment-with-locales.min.js"></script>
   </body>
 </html>
